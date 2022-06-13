@@ -1,0 +1,16 @@
+[package]
+name = "rust_visuals"
+version = "0.1.0"
+edition = "2021"
+
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+bevy = { version = "0.7", features = ["dynamic"] }
+bevy_prototype_lyon = "0.5.0"
+wgpu = "0.12.0"
