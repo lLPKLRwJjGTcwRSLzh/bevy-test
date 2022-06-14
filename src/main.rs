@@ -1,5 +1,7 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 
+mod geometry;
+
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
@@ -26,7 +28,7 @@ fn setup(
 
     // Circle
     commands.spawn_bundle(MaterialMesh2dBundle {
-        mesh: meshes.add(shape::Circle::new(50.).into()).into(),
+        mesh: meshes.add(geometry::Circle::new(50.).into()).into(),
         material: materials.add(ColorMaterial::from(Color::PURPLE)),
         transform: Transform::from_translation(Vec3::new(-100., 0., 0.)),
         ..default()
@@ -34,7 +36,9 @@ fn setup(
 
     // Hexagon
     commands.spawn_bundle(MaterialMesh2dBundle {
-        mesh: meshes.add(shape::RegularPolygon::new(50., 6).into()).into(),
+        mesh: meshes
+            .add(geometry::RegularPolygon::new(50., 6).into())
+            .into(),
         material: materials.add(ColorMaterial::from(Color::TURQUOISE)),
         transform: Transform::from_translation(Vec3::new(100., 0., 0.)),
         ..default()
