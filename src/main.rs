@@ -1,5 +1,7 @@
 use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
 
+mod geometry;
+
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
